@@ -12,7 +12,7 @@ import type { CameraFeedHandle } from '../../../components/camera/CameraFeed';
 import { saveEnrollmentSnapshot, type EnrollmentSnapshot } from '../../../lib/enrollSession';
 
 // camera
-const CameraFeed = dynamic(
+const CameraFeed = dynamic( 
   () => import('../../../components/camera/CameraFeed').then((m) => m.CameraFeed),
   { ssr: false }
 );

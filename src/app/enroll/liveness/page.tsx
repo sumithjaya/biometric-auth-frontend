@@ -25,9 +25,9 @@ const MIN_FACE_RATIO = 0.16;
 const GOOD_HOLD_FRAMES = 10;
 
 // ---- fake user (replace with NextAuth or your auth) ----
-const userId = 'user-123';
-const userName = 'Sumith';
-const userEmail = 'sumith@example.com';
+const userId = 'u123';
+const userName = '';
+const userEmail = '';
 const consentVersion = 'v1';
 
 // ---- helpers ----

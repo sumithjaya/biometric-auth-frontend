@@ -40,7 +40,7 @@ export default function HomePage() {
   <div className="mt-5">
     {/* Face only */}
     <Link
-      href="/auth/face"
+      href="/auth/pin"
       className="
         group inline-flex w-full items-center justify-between
         rounded-xl border border-transparent

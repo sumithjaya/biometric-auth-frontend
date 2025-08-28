@@ -1,15 +1,17 @@
-'use client';
-
-import * as faceapi from 'face-api.js';
+import * as faceapi from "face-api.js";
 
 export async function detectPrimaryFace(
-  input: HTMLVideoElement | HTMLCanvasElement,
-  opts: faceapi.TinyFaceDetectorOptions
+  video: HTMLVideoElement,
+  opts = new faceapi.TinyFaceDetectorOptions({ inputSize: 320, scoreThreshold: 0.4 })
 ) {
-  const det = await faceapi.detectSingleFace(input, opts);
-  if (!det) return null;
-  const box = det.box;
-  const frameArea =
-    (input as HTMLVideoElement).videoWidth * (input as HTMLVideoElement).videoHeight;
-  return { score: det.score ?? 0, box, frameArea };
+  const result = await faceapi.detectSingleFace(video, opts);
+  if (!result) return null;
+
+  const dims = { width: video.videoWidth, height: video.videoHeight };
+  return {
+    ...result,
+    box: result.box,
+    score: result.score,
+    frameArea: dims.width * dims.height,
+  };
 }
